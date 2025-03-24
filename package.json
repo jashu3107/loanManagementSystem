@@ -1,0 +1,26 @@
+{
+  "name": "loanmanagementsystem",
+  "version": "1.0.0",
+  "main": "./src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jashu3107/loanManagementSystem.git"
+  },
+  "author": "Uttam's Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jashu3107/loanManagementSystem/issues"
+  },
+  "homepage": "https://github.com/jashu3107/loanManagementSystem#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}
