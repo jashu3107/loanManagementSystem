@@ -15,7 +15,7 @@ router.post("/usercreate",(req, res, next)=>{
             data: user
         })
     }).catch((error)=>{
-        return respose.status(500).json({
+        return res.status(500).json({
             message: "Internal server error",
             error: error
         })
