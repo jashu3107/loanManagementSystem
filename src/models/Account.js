@@ -27,4 +27,4 @@ const Account = sequelizer.define("Account",{
     }
 }, {timestamps: true})
 
-module.exports = {Account}
+module.exports = { Account }
