@@ -15,5 +15,5 @@ try{
 }catch(error){
     console.error('Unable to connect to the database:', error);
 }
-//ggs
+
 module.exports = {sequelizer};
