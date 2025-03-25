@@ -20,6 +20,39 @@ router.post("/usercreate",(req, res, next)=>{
             error: error
         })
     })
+})
 
+router.post("/delete",(req, res, next)=>{
+    console.log("hello");
+    next();
+},(req, res)=>{
+    Users.destroy({where:{user_id:req.query.id}}).then((user)=>{
+        return res.status(201).json({
+            message: "User deleted successfully",
+            data: user
+        })
+    }).catch((error)=>{
+        return res.status(500).json({
+            message: "Internal server error",
+            error: error
+        })
+    })
+})
+
+router.post("/delete",(req, res, next)=>{
+    console.log("hello");
+    next();
+},(req, res)=>{
+    Users.destroy({where:{user_id:req.query.id}}).then((user)=>{
+        return res.status(201).json({
+            message: "User deleted successfully",
+            data: user
+        })
+    }).catch((error)=>{
+        return res.status(500).json({
+            message: "Internal server error",
+            error: error
+        })
+    })
 })
 module.exports = router;

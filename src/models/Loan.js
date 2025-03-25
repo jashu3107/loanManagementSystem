@@ -41,6 +41,10 @@ const Loan = sequelizer.define("Loan",{
     due_date:{
         type: DataTypes.DATE,
         allowNull: false
+    },
+    loan_status:{
+        type: DataTypes.STRING(50),
+        allowNull: false
     }
 },{timestamps: true});
 
