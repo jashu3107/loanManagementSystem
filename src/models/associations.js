@@ -4,7 +4,7 @@ const {Loan} = require("./Loan.js");
 
 // user - acc one to one
 Users.hasOne(Account,{
-    foreignKey: 'user_id"'
+    foreignKey: 'user_id'
 });
 Account.belongsTo(Users,{
     foreignKey: 'user_id'

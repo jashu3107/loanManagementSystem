@@ -9,9 +9,8 @@ const Account = sequelizer.define("Account",{
         allowNull: false
     },
     user_id:{
+        unique: true,
         type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
         allowNull: false,
         references:{
             model: Users,
