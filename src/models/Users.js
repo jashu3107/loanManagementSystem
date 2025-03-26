@@ -27,7 +27,7 @@ const Users = sequelizer.define("Users",{
         unique: true
     },
     password:{
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING,
         allowNull: false
     },
 }, {timestamps: true});
