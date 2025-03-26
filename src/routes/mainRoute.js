@@ -1,5 +1,7 @@
 const express = require("express");
 const {Users} = require("../models/associations.js");
+const updateLoanValidations = require("../validation/updateLoanValidations.js");
+const { updateLoanController } = require("../controllers/updateLoanController.js");
 const router = express.Router();
 
 //  router.use('/',userValidation,userController) ;
@@ -38,4 +40,5 @@ router.post("/delete",(req, res, next)=>{
         })
     })
 })
+router.put("/userUpdate",updateLoanValidations,updateLoanController);
 module.exports = router;
