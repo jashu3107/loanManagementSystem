@@ -1,13 +1,12 @@
-const{createUserSequelize} = require("../sequelizeController/createUserSequelize.js");
-const{logger}=require("../helpers/logger.js");
-const{response}=require("../helpers/response.js");
+const { createUserSequelize } = require("../sequelizeController/createUserSequelize.js");
+const { logger } = require("../helpers/logger.js");
+const { response } = require("../helpers/response.js");
 const bcrypt = require("bcrypt");
 
-const createUserController = async(req, res)=>{
-    try{
-        const{first_name, last_name, email, password, account_number,phone_number} = req.body;
-        const salt=await bcrypt.genSalt(10);
-        const hashPassword = await bcrypt.hash(password, salt);
+const createUserController = async (req, res) => {
+    try {
+        const { first_name, last_name, email, password, account_number, phone_number } = req.body;
+        const hashPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
         const data = {
             first_name,
             last_name,
@@ -17,14 +16,15 @@ const createUserController = async(req, res)=>{
             phone_number
         };
         const loggerprefix = "createUserController  -[UserID]";
-        const result = await createUserSequelize({data, loggerprefix});
+        const result = await createUserSequelize({ data, loggerprefix });
         return response({
-            req:req,
-            res:res,
-            code:result?.code, 
-            message:result?.message,
-            data:result?.data});
-    }catch(err){
+            req: req,
+            res: res,
+            code: result?.code,
+            message: result?.message,
+            data: result?.data
+        });
+    } catch (err) {
         console.log(err);
         logger?.info(err);
         return response({
@@ -37,4 +37,4 @@ const createUserController = async(req, res)=>{
     }
 };
 
-module.exports = {createUserController};
+module.exports = { createUserController };
