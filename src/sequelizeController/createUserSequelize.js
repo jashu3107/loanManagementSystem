@@ -1,29 +1,27 @@
-const {User}=require("./models/Users.js");
-const{logger}=require("../helpers/loggers.js");
+const {Users} = require("../models/Users.js");  // Fix the import
+const logger = require("../helpers/logger.js");  // Fix the logger import path
 
-const createUserSequelize=async({data,loggerprefix})=>{
-    try{
+const createUserSequelize = async({data, loggerprefix}) => {
+    try {
         logger.info(`${loggerprefix} creating user in database`);
-        const user=await User.create(data);
+        const user = await Users.create(data);  // Changed User to Users
         logger.info(`${loggerprefix} user created successfully`);
         return {
-            "code":200,
-            "message":"user created successfully",
-            "data":user
+            "code": 200,
+            "message": "user created successfully",
+            "data": user
         };
-    }catch(error){
-        logger.error(`${loggerprefix} error creating user`);
+    } catch(error) {
+        console.log(error)
+        logger?.info(`${loggerprefix} error creating user`);
         return {
-            "code":500,
-            "message":"error creating user",
-            "data":error
+            "code": 500,
+            "message": "error creating user",
+            "data": error
         };
-    
     }
 }
 
-
-
-module.exports={
+module.exports = {
     createUserSequelize
 }
