@@ -2,12 +2,15 @@ const { createUserSequelize } = require("../sequelizeController/createUserSequel
 const { logger } = require("../helpers/logger.js");
 const { response } = require("../helpers/response.js");
 const bcrypt = require("bcrypt");
+const { v4: uuidv4 } = require('uuid');
 
 const createUserController = async (req, res) => {
     try {
-        const { first_name, last_name, email, password, phone_number } = req.body;
-        const hashPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
+        const { User_id,first_name, last_name, email, password, phone_number } = req.body;
+        const saltRounds = 10;
+        const hashPassword = await bcrypt.hash(password, saltRounds);
         const data = {
+            User_id: uuidv4(),
             first_name,
             last_name,
             email,
@@ -24,7 +27,7 @@ const createUserController = async (req, res) => {
             data: result?.data
         });
     } catch (err) {
-        console.log(err);
+        console.log("error in the createUserController");
         logger?.info(err);
         return response({
             req: req,

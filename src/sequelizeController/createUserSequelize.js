@@ -1,10 +1,10 @@
-const {Users} = require("../models/Users.js");  // Fix the import
-const logger = require("../helpers/logger.js");  // Fix the logger import path
+const {Users} = require("../models/Users.js"); 
+const logger = require("../helpers/logger.js");  
 
 const createUserSequelize = async({data, loggerprefix}) => {
     try {
         logger.info(`${loggerprefix} creating user in database`);
-        const user = await Users.create(data);  // Changed User to Users
+        const user = await Users.create(data);  
         logger.info(`${loggerprefix} user created successfully`);
         return {
             "code": 200,

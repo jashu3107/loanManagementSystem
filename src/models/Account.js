@@ -21,6 +21,9 @@ const Account = sequelizer.define("Account",{
         type: DataTypes.STRING(50),
         allowNull: true
     },
+
+
+    
     branch_name:{
         type: DataTypes.STRING(50),
         allowNull: true
