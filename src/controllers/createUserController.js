@@ -5,14 +5,13 @@ const bcrypt = require("bcrypt");
 
 const createUserController = async (req, res) => {
     try {
-        const { first_name, last_name, email, password, account_number, phone_number } = req.body;
+        const { first_name, last_name, email, password, phone_number } = req.body;
         const hashPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
         const data = {
             first_name,
             last_name,
             email,
             password: hashPassword,
-            account_number,
             phone_number
         };
         const loggerprefix = "createUserController  -[UserID]";

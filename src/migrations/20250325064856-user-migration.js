@@ -29,7 +29,7 @@ module.exports = {
           unique: true
       },
   
-  },{timestamps: true});  
+  },{timestamps: false});  
 },
 
   async down (queryInterface, Sequelize) {

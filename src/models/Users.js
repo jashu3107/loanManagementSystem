@@ -30,6 +30,6 @@ const Users = sequelizer.define("Users",{
         type: DataTypes.STRING,
         allowNull: false
     },
-}, {timestamps: true});
+}, {timestamps: false});
 
 module.exports = {Users};
