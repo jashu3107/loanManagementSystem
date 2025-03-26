@@ -1,6 +1,5 @@
 const {sequelizer} = require("../config/db.js");
 const {DataTypes} = require("sequelize");
-// const {Account} = require("./Account.js");
 
 const Users = sequelizer.define("Users",{
     user_id:{
@@ -9,14 +8,6 @@ const Users = sequelizer.define("Users",{
         autoIncrement: true,
         allowNull: false
     },
-    // account_number:{
-    //     type: DataTypes.STRING(20),
-    //     allowNull: false,
-    //     references:{
-    //         model: Account,
-    //         key: "account_number"
-    //     }
-    // },
     first_name:{
         type: DataTypes.STRING(50),
         allowNull: false
@@ -35,7 +26,10 @@ const Users = sequelizer.define("Users",{
         allowNull: false,
         unique: true
     },
-
+    password:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
 }, {timestamps: true});
 
 module.exports = {Users};
