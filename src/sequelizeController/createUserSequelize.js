@@ -1,5 +1,5 @@
 const {Users} = require("../models/Users.js"); 
-const logger = require("../helpers/logger.js");  
+const {logger} = require("../helpers/logger.js");  // Fixed: Destructure logger from the import
 
 const createUserSequelize = async({data, loggerprefix}) => {
     try {
@@ -12,8 +12,8 @@ const createUserSequelize = async({data, loggerprefix}) => {
             "data": user
         };
     } catch(error) {
-        console.log(error)
-        logger?.info(`${loggerprefix} error creating user`);
+        console.log(error);
+        logger.info(`${loggerprefix} error creating user`); // Removed optional chaining
         return {
             "code": 500,
             "message": "error creating user",

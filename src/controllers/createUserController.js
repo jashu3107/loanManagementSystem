@@ -2,15 +2,14 @@ const { createUserSequelize } = require("../sequelizeController/createUserSequel
 const { logger } = require("../helpers/logger.js");
 const { response } = require("../helpers/response.js");
 const bcrypt = require("bcrypt");
-const { v4: uuidv4 } = require('uuid');
+
 
 const createUserController = async (req, res) => {
     try {
-        const { User_id,first_name, last_name, email, password, phone_number } = req.body;
+        const { first_name, last_name, email, password, phone_number } = req.body;
         const saltRounds = 10;
         const hashPassword = await bcrypt.hash(password, saltRounds);
         const data = {
-            User_id: uuidv4(),
             first_name,
             last_name,
             email,
@@ -34,7 +33,7 @@ const createUserController = async (req, res) => {
             res: res,
             code: 500,
             message: "Internal Server Error",
-            data: err
+            data: {}
         });
     }
 };
