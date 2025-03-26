@@ -1,5 +1,5 @@
-export default response = ({ req, res, code, message, data }) => {
-    return res.json({
+const response = ({ req, res, code, message, data }) => {
+    return res.jsonp({
         req,
         res,
         code,
@@ -7,4 +7,5 @@ export default response = ({ req, res, code, message, data }) => {
         data
     });
 }
+module.exports = { response };
 
